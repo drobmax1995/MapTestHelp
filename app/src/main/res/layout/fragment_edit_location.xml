@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:id="@+id/frag1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtTitle"
-        android:hint="Enter title"
-        />
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
 
-    <EditText
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/edtDescryption"
-        android:hint="enter description"/>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter title" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edtDescryption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="enter description" />
+    </android.support.design.widget.TextInputLayout>
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/btnAdd"
-        android:text="add location"/>
-    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="add location" />
+
+    <Button
         android:id="@+id/btnSave"
-        android:text="save"/>
-    <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvInfo"/>
+        android:text="save" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>

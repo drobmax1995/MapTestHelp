@@ -122,10 +122,7 @@ public class MainActivity extends ActionBarActivity
 
             return true;
         }
-        if (id == R.id.actionNew) {
-            ListnersHosting.getInstance().getOnNewItemCreatedListener().onStartCreation();
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

@@ -5,11 +5,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,25 @@ public class Fragment2 extends Fragment implements OnMyEventListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_show_locations, null);
         listView = (ListView)view.findViewById(R.id.listView);
+        FloatingActionButton fab = (FloatingActionButton)view.findViewById(R.id.fab);
+        fab.attachToListView(listView);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ListnersHosting.getInstance().getOnNewItemCreatedListener().onStartCreation();
+            }
+        });
+        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
         ListnersHosting.getInstance().getOnMyEventListener().onDataChanged();
         ListnersHosting.getInstance().getOnMyEventListener1().onDataChanged();
 
