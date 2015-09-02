@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:icon="@drawable/abc_ic_go_search_api_mtrl_alpha"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/actionNew"
+        android:orderInCategory="90"
+        android:icon="@drawable/abc_btn_radio_to_on_mtrl_015"
+        android:title="ololol"
+        app:showAsAction="always"/>
+</menu>
