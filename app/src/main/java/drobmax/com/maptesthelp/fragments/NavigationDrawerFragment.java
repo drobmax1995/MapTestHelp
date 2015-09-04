@@ -1,15 +1,16 @@
 package drobmax.com.maptesthelp.fragments;
 
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,8 @@ import java.util.List;
 import drobmax.com.maptesthelp.R;
 import drobmax.com.maptesthelp.database.LocationDataProvider;
 import drobmax.com.maptesthelp.interfaces.OnDrawerOpenListner;
-import drobmax.com.maptesthelp.interfaces.OnMyEventListener;
 import drobmax.com.maptesthelp.interfaces.OnLocationAddListener;
+import drobmax.com.maptesthelp.interfaces.OnMyEventListener;
 import drobmax.com.maptesthelp.models.MarkerModel;
 import drobmax.com.maptesthelp.utils.ListnersHosting;
 

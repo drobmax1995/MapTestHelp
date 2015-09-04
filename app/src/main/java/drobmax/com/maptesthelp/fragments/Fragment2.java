@@ -9,13 +9,16 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.melnykov.fab.FloatingActionButton;
+import com.melnykov.fab.ScrollDirectionListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import drobmax.com.maptesthelp.MainActivity;
 import drobmax.com.maptesthelp.R;
 import drobmax.com.maptesthelp.adapters.ListMarkersAdapter;
 import drobmax.com.maptesthelp.database.LocationDataProvider;
@@ -29,7 +32,7 @@ import drobmax.com.maptesthelp.utils.ListnersHosting;
 public class Fragment2 extends Fragment implements OnMyEventListener {
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
     int pageNumber;
-    ListView listView;
+    AbsListView listView;
     ListMarkersAdapter adapter;
     ArrayList<MarkerModel> markerModels=null;
     public static Fragment2 newInstance(int page) {
@@ -51,24 +54,23 @@ public class Fragment2 extends Fragment implements OnMyEventListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_show_locations, null);
-        listView = (ListView)view.findViewById(R.id.listView);
+        listView = (AbsListView) view.findViewById(R.id.listView);
         FloatingActionButton fab = (FloatingActionButton)view.findViewById(R.id.fab);
-        fab.attachToListView(listView);
+        fab.attachToListView(listView, new ScrollDirectionListener() {
+            @Override
+            public void onScrollDown() {
+                ((MainActivity)getActivity()).getToolBar().setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onScrollUp() {
+                ((MainActivity)getActivity()).getToolBar().setVisibility(View.VISIBLE);
+            }
+        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ListnersHosting.getInstance().getOnNewItemCreatedListener().onStartCreation();
-            }
-        });
-        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
             }
         });
         ListnersHosting.getInstance().getOnMyEventListener().onDataChanged();

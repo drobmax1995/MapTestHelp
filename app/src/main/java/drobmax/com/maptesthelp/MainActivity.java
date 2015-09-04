@@ -2,6 +2,7 @@ package drobmax.com.maptesthelp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,8 +18,6 @@ import android.widget.LinearLayout;
 import drobmax.com.maptesthelp.fragments.NavigationDrawerFragment;
 import drobmax.com.maptesthelp.fragments.PagerFragment;
 import drobmax.com.maptesthelp.interfaces.OnMyEventListener;
-import drobmax.com.maptesthelp.interfaces.OnLocationAddListener;
-import drobmax.com.maptesthelp.utils.ListnersHosting;
 
 
 public class MainActivity extends ActionBarActivity
@@ -28,7 +27,6 @@ public class MainActivity extends ActionBarActivity
     private CharSequence mTitle;
     private PagerFragment pagerFragment;
     private OnMyEventListener onMyEventListener;
-    private OnLocationAddListener onLocationAddListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +50,9 @@ public class MainActivity extends ActionBarActivity
 //        contentProvider.delete(TableMarkers.CONTENT_URI,null,null);
     }
 
+    public Toolbar getToolBar(){
+        return toolBar;
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -122,7 +123,6 @@ public class MainActivity extends ActionBarActivity
 
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }

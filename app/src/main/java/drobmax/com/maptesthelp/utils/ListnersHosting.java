@@ -23,7 +23,6 @@ public class ListnersHosting {
     private OnDataEditingListner onDataEditingListner;
     private OnNewItemCreatedListener onNewItemCreatedListener;
     private OnDrawerOpenListner onDrawerOpenListner;
-
     public OnDrawerOpenListner getOnDrawerOpenListner() {
         return onDrawerOpenListner;
     }
